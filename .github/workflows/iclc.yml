@@ -8,7 +8,7 @@ on:
   #     - '.github/**'
   push:
     paths-ignore:
-      - '*.md'
+#      - '*.md'
       - '.github/**'
 
 env:
