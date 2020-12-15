@@ -28,9 +28,10 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: pberthonneau/pet-clinic
-        path: ..
+        path: xx
         ref: master
     - run: dir
+    - run: mv xx ..
     - run: dir ..
     - run: dir ..\..
     - run: 'dir c:'
