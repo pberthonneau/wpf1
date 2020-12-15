@@ -28,9 +28,10 @@ jobs:
     - name: Checkout #2
       uses: actions/checkout@v2
       with:
-        repository: action/checkout
+        repository: pberthonneau/action
         path: my-tools
- 
+    - run: dir
+
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
