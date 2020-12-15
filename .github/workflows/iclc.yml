@@ -1,0 +1,50 @@
+name: "IC/LC"
+on:
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths-ignore:
+  #     - '*.md'
+  #     - '.github/**'
+  push:
+    paths-ignore:
+#      - '*.md'
+      - '.github/**'
+
+env:
+  app: Demo-WPF
+  buildVersion: 1.0.0 # initial build version
+  dotNetVersion: net5.0
+  dotNetConfiguration: Release
+
+jobs:
+  integration:
+    runs-on: windows-2019
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - run: echo %cd%
+    - run: dir
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: build app
+      run:  msbuild -nologo ${{ env.app }}\${{ env.app }}.csproj /p:Configuration=${{ env.dotNetConfiguration }}
+
+    - name: Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.app }}
+        path: ${{ env.app }}\bin\
+        if-no-files-found: error
+        retention-days: 1         # no retention yet
+
+  livraison:
+    needs: integration
+    runs-on: windows-2019
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        name: ${{ env.app }}
+    - run: dir ${{ env.dotNetConfiguration }}
