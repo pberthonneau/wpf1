@@ -30,6 +30,7 @@ jobs:
       with:
         repository: pberthonneau/action
         path: my-tools
+        ref: master
     - run: dir
 
     - name: Add msbuild to PATH
