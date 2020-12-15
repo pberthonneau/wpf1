@@ -31,7 +31,9 @@ jobs:
         repository: pberthonneau/pet-clinic
         path: my-tools
         ref: master
-    - run: dir
+    - run: dir ..
+    - run: dir ..\..
+    - run: dir ..\..\..
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
