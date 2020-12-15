@@ -28,7 +28,7 @@ jobs:
     - name: Checkout #2
       uses: actions/checkout@v2
       with:
-        repository: pberthonneau/action
+        repository: pberthonneau/pet-clinic
         path: my-tools
         ref: master
     - run: dir
