@@ -33,7 +33,7 @@ jobs:
     - run: dir
     - run: dir ..
     - run: dir ..\..
-    - run: dir c:
+    - run: 'dir c:'
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
