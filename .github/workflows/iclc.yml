@@ -31,10 +31,10 @@ jobs:
         path: xx
         ref: master
     - run: dir
+    - run: dir xx
     - run: mv xx ..
     - run: dir ..
-    - run: dir ..\..
-    - run: 'dir c:'
+    - run: 'more c:\InstalledSoftware.md'
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
