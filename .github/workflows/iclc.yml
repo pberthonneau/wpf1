@@ -23,17 +23,17 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - run: dir
 
     - name: Checkout #2
       uses: actions/checkout@v2
       with:
         repository: pberthonneau/pet-clinic
-        path: my-tools
+        path: ..
         ref: master
+    - run: dir
     - run: dir ..
     - run: dir ..\..
-    - run: dir ..\..\..
+    - run: dir c:
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
